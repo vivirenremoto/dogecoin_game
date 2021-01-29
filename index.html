@@ -13,6 +13,10 @@
 
 
     <link rel="prefetch" href="static/music.mp3" />
+    <link rel="prefetch" href="static/gas.png" />
+    <link rel="prefetch" href="static/fire.gif" />
+    <link rel="prefetch" href="static/coin2.gif" />
+    <link rel="prefetch" href="static/space.jpg" />
 
 
 
@@ -263,7 +267,7 @@
 
 
         <div id="coin"
-            style="z-index:2;background:url('static/gas.png?1');width:100px;height:100px;position:fixed;background-size:contain;background-position:center center;background-repeat:no-repeat;">
+            style="z-index:2;background:url('static/gas.png');width:100px;height:100px;position:fixed;background-size:contain;background-position:center center;background-repeat:no-repeat;">
         </div>
 
 
@@ -413,7 +417,6 @@
 
                 if (coin_y == rocket_y && coin_col == rocket_col) {
 
-                    console.log('test');
 
                     // desktop
                     if (screen_width >= 800) {
