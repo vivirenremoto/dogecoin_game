@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>🚀🚀🚀 Game - Dogecoin to the Moon 🚀🚀🚀 #dogemoongame</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+
+
+    <link rel="prefetch" href="static/music.mp3" />
+
+
+
+    <meta property="og:image" content="https://vivirenremoto.github.io/dogecoin_game/static/social.png">
+    <meta property="og:image:secure_url" content="https://vivirenremoto.github.io/dogecoin_game/static/social.png">
+    <meta property="og:image:alt" content="Game - Dogecoin to the Moon">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Game - Dogecoin to the Moon">
+    <meta name="twitter:image" content="https://vivirenremoto.github.io/dogecoin_game/static/social.png">
+
+
+</head>
+
+<body>
+
+
+
+    <style>
+        * {
+            font-family: 'VT323', monospace;
+            text-transform: uppercase;
+        }
+
+        body {
+            background: white;
+            overflow-x: hidden;
+            font-size: 70px;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 65px;
+        }
+
+        h3 {
+            margin: 0;
+        }
+
+        button {
+            border: 5px black solid;
+            color: black;
+            background: white;
+            padding: 5px 30px;
+            display: inline-block;
+            font-size: 30px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+
+        /* intro */
+
+        #intro {
+            background: #000 url('static/intro.jpg');
+            background-size: cover;
+            color: yellow;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            text-align: center;
+        }
+
+        #intro div {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-left: -137px;
+            margin-top: -170px;
+        }
+
+        h1,
+        h2 {
+            text-shadow: 4px 4px 4px rgba(0, 0, 0, 1);
+            font-size: 60px;
+        }
+
+
+        #intro button {
+            margin-top: 50px;
+        }
+
+
+        /* game */
+
+
+        #btn_left {
+            left: 0;
+            bottom: 0;
+            margin-bottom: -30px;
+        }
+
+        #btn_right {
+            right: 0;
+            bottom: 0;
+            margin-bottom: -30px;
+        }
+
+        .btn_control {
+            display: none;
+            font-size: 80px;
+            color: white;
+            cursor: pointer;
+            position: fixed;
+            z-index: 3;
+        }
+
+        #fire {
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+
+
+
+        /* result */
+
+        #result {
+            color: white;
+            text-align: center;
+            background: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+            padding: 20px;
+        }
+
+        #result h2 {
+            color: #00ff00;
+            margin: 0;
+            font-size: 86px;
+            line-height: 87px;
+            margin-bottom: 20px;
+        }
+
+
+
+        @media screen and (max-width: 480px) {
+
+            body {
+                font-size: 20px;
+            }
+
+            button {
+                font-size: 40px;
+            }
+
+            h3 {
+                font-size: 30px;
+            }
+
+            .btn_control {
+                font-size: 100px;
+                display: block;
+            }
+
+            /* intro */
+
+            h1,
+            h2 {
+                font-size: 60px;
+            }
+
+
+            #intro div {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                margin-left: -140px;
+                margin-top: -120px;
+            }
+
+            /* result */
+
+            #result {
+                max-width: 100%;
+            }
+        }
+    </style>
+
+
+    <div id="intro">
+
+        <a href="https://twitter.com/vivirenremoto" target="_blank"
+            style="font-size:30px;position:fixed;right:10px;top:10px;z-index:2;color:white;text-decoration:none;">by
+            @vivirenremoto</a>
+
+        <div>
+            <h1 style="margin-bottom:0">DOGECOIN</h1>
+            <h2>TO THE MOON</h2>
+            <button id="btn_start">START</button>
+        </div>
+
+    </div>
+
+
+
+    <div id="game" style="display:none;background:url('static/space.jpg');position:fixed;left:0;right:0;top:0;bottom:0;background-size:100%
+        auto;background-position-y:0;">
+
+        <div id="score"
+            style="z-index:3;color:#00ff00;position:fixed;left:0;right:0;top:15px;text-align:center;font-size:80px;">
+            $100</div>
+
+        <div style="z-index:3;background:url('static/coin2.png');background-size:cover;width:100px;height:100px;position:fixed;bottom:25%;"
+            id="rocket">
+
+            <div id="fire"
+                style="background:url('static/fire.gif');background-size:cover;height:100px;width:100%;position:absolute;margin-top:85px;right:-40px;">
+            </div>
+        </div>
+
+
+        <div
+            style="font-size:40px;bottom:0;position:fixed;left:50%;width:100px;text-align:center;margin-left:-50px;color:white;">
+
+            <svg style="margin-right:-10px;" xmlns="http: //www.w3.org/2000/svg" width="25" height="25"
+                fill="currentColor" class="bi bi-droplet-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6zM6.646 4.646c-.376.377-1.272 1.489-2.093 3.13l.894.448c.78-1.559 1.616-2.58 1.907-2.87l-.708-.708z" />
+            </svg>
+
+            <span id="fuel">100%</span>
+
+
+        </div>
+
+
+
+        <div id="coin"
+            style="z-index:2;background:url('static/gas.png?1');width:100px;height:100px;position:fixed;background-size:contain;background-position:center center;background-repeat:no-repeat;">
+        </div>
+
+
+        <div style="position:fixed;left:33%;right:33%;border:1px white dashed;border-width:0 2px;top:0;bottom:0"></div>
+
+        <div id="btn_left" class="btn_control">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-square-fill" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm9.5 8.5a.5.5 0 0 0 0-1H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5z" />
+            </svg>
+        </div>
+
+        <div id="btn_right" class="btn_control">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-square-fill" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 8.5a.5.5 0 0 1 0-1h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5z" />
+            </svg>
+        </div>
+
+    </div>
+
+
+
+    <div id="result">
+        <h1>YOUR BALANCE</h2>
+            <h2 id="final_score"></h2>
+
+            <button onclick="document.location='';">BUY DOGE</button>
+            <button onclick="location.reload();">Try again?</button>
+            <button onclick="share()">Share</button>
+
+            <button onclick="window.open('https://www.buymeacoffee.com/vivirenremoto')">Support me</button>
+
+
+
+    </div>
+
+
+
+    <audio id="bg_music1" loop>
+        <source src="static/music.mp3" type="audio/mp3">
+    </audio>
+
+
+    <script>
+        var music_playing1 = false;
+
+        var music1 = document.getElementById('bg_music1');
+        music1.volume = 0.5;
+
+
+
+
+        var screen_height = $(document).height();
+        var screen_width = $(document).width();
+
+
+        var score = 0;
+        var score_format;
+        var ways = 3;
+        var fuel = 100;
+        var rocket_col = 2;
+        var coin_col = 2;
+        var way_width = screen_width / ways;
+        var rocket_width = $('#rocket').width();
+        var coin_width = $('#coin').width();
+        var coin_height = $('#coin').height();
+
+        var coin_x = 0;
+        var coin_y = 0;
+        var rocket_x = 0;
+        var rocket_y = 0;
+        var fuel_timer;
+
+
+
+
+        $('#btn_start').click(function () {
+
+
+            $('#intro').hide();
+            $('#game').show();
+
+            startGame();
+
+
+        });
+
+
+
+        function startGame() {
+
+
+            updateCar();
+
+
+
+            setInterval(function () {
+                var top = parseInt(jQuery('#game').css('background-position-y'));
+                top += 3;
+                jQuery('#game').css('background-position-y', top);
+            }, 1);
+
+
+            fuel_timer = setInterval(function () {
+                fuel -= 1;
+
+
+                if (fuel <= 0) {
+                    endGame();
+                }
+
+
+                $('#fuel').html(fuel + '%');
+            }, 150);
+
+
+            rocket_y = screen_height - 260;
+            $('#rocket').css('top', rocket_y + 'px');
+
+
+            coin_x = (way_width * (coin_col - 1)) + ((way_width - coin_width) / 2);
+            $('#coin').css('left', coin_x + 'px');
+
+
+
+
+            setInterval(function () {
+
+                coin_y = parseInt($('#coin').css('top'));
+                coin_y++;
+
+                if (coin_y > screen_height) {
+                    coin_y = coin_height * -1;
+
+                    coin_col = Math.floor(Math.random() * 3) + 1;
+
+                    coin_x = (way_width * (coin_col - 1)) + ((way_width - coin_width) / 2);
+                    $('#coin').css('left', coin_x + 'px');
+
+                }
+
+
+
+
+                if (coin_y == rocket_y && coin_col == rocket_col) {
+
+                    console.log('test');
+
+                    // desktop
+                    if (screen_width >= 800) {
+                        fuel += 35;
+                    } else {
+                        fuel += 35;
+                    }
+
+
+                    if (fuel > 100) {
+                        fuel = 100;
+                    }
+
+
+
+                }
+
+
+                $('#coin').css('top', coin_y + 'px');
+
+
+
+                score += 0.10;
+
+                score_format = '$' + score.toFixed(2);
+
+                $('#score').html(score_format);
+
+            }, 1);
+
+
+
+
+        }
+
+
+        $('#btn_left').click(function () {
+            moveLeft();
+
+        });
+
+        $('#btn_right').click(function () {
+            moveRight();
+        });
+
+        function moveLeft() {
+            if (rocket_col == 3) {
+                rocket_col = 2;
+            } else if (rocket_col == 2) {
+                rocket_col = 1;
+            }
+            updateCar();
+        }
+
+
+        function moveRight() {
+            if (rocket_col == 1) {
+                rocket_col = 2;
+            } else if (rocket_col == 2) {
+                rocket_col = 3;
+            }
+            updateCar();
+        }
+
+
+        function updateCar() {
+            rocket_x = (way_width * (rocket_col - 1)) + ((way_width - rocket_width) / 2);
+            $('#rocket').css('left', rocket_x + 'px');
+
+        }
+
+
+        function endGame() {
+            clearInterval(fuel_timer);
+
+            $('#intro').hide();
+            $('#game').hide();
+            $('#result').show();
+
+
+
+            $('#final_score').html('$' + score.toFixed(2));
+        }
+
+
+
+        function share() {
+            window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '&tw_p=tweetbutton&url=' + document.location.href);
+
+        }
+
+
+
+
+        function playMusic1() {
+            if (!music_playing1) {
+                music_playing1 = true;
+                music1.play();
+            }
+        }
+
+
+        ////////////////
+
+
+        $(function () {
+
+            $("body").click(function () {
+                playMusic1();
+            });
+
+            $("body").keydown(function (e) {
+                if (e.keyCode == 37) {
+                    moveLeft();
+                } else if (e.keyCode == 39) {
+                    moveRight();
+                }
+            });
+
+
+
+
+
+        });
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
