@@ -263,8 +263,8 @@
         </div>
 
 
-        <div
-            style="font-size:40px;bottom:0;position:fixed;left:50%;width:100px;text-align:center;margin-left:-50px;color:white;">
+        <div id="fuel_bar"
+            style="z-index:3;font-size:40px;bottom:0;position:fixed;left:50%;width:100px;text-align:center;margin-left:-50px;color:white;">
 
             <svg style="margin-right:-10px;" xmlns="http: //www.w3.org/2000/svg" width="25" height="25"
                 fill="currentColor" class="bi bi-droplet-fill" viewBox="0 0 16 16">
@@ -444,6 +444,12 @@
                     if (fuel > 100) {
                         fuel = 100;
                     }
+
+                    $('#fuel_bar').css('color', '#00ff00');
+
+                    setTimeout(function () {
+                        $('#fuel_bar').css('color', '#fff');
+                    }, 1000);
 
 
 
