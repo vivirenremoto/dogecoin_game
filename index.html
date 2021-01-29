@@ -258,7 +258,7 @@
             id="rocket">
 
             <div id="fire"
-                style="background:url('static/fire.gif');background-size:cover;height:100px;width:100%;position:absolute;margin-top:85px;right:-35px;">
+                style="background:url('static/fire.gif');background-size:cover;background-position:bottom center;height:100px;width:100%;position:absolute;margin-top:85px;">
             </div>
         </div>
 
@@ -284,7 +284,9 @@
         </div>
 
 
-        <div style="position:fixed;left:33%;right:33%;border:1px white dashed;border-width:0 2px;top:0;bottom:0"></div>
+        <div
+            style="position:fixed;left:33%;right:33%;opacity:0.35;border:1px white dashed;border-width:0 2px;top:0;bottom:0">
+        </div>
 
         <div id="btn_left" class="btn_control">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-square-fill" fill="currentColor"
@@ -454,7 +456,7 @@
 
                 score += 0.10;
 
-                score_format = '$' + score.toFixed(2);
+                score_format = '$' + parseInt(score);
 
                 $('#score').html(score_format);
 
@@ -511,7 +513,7 @@
 
 
 
-            $('#final_score').html('$' + score.toFixed(2));
+            $('#final_score').html('$' + parseInt(score));
         }
 
 
