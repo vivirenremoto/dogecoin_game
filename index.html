@@ -284,11 +284,20 @@
         </div>
 
 
-        <div
+        <div class="btn_left" 
+        style="position:fixed;left:0;right:66%;opacity:0.35;top:0;bottom:0">
+    </div>
+
+        <div class="btn_center" 
             style="position:fixed;left:33%;right:33%;opacity:0.35;border:1px white dashed;border-width:0 2px;top:0;bottom:0">
         </div>
 
-        <div id="btn_left" class="btn_control">
+        <div class="btn_right" 
+        style="position:fixed;left:66%;right:0;opacity:0.35;top:0;bottom:0">
+    </div>
+
+
+        <div id="btn_left" class="btn_control btn_left">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-square-fill" fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
@@ -296,7 +305,7 @@
             </svg>
         </div>
 
-        <div id="btn_right" class="btn_control">
+        <div id="btn_right" class="btn_control btn_right">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-square-fill" fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
@@ -474,12 +483,21 @@
         }
 
 
-        $('#btn_left').click(function () {
+        $('.btn_left').click(function () {
             moveLeft();
 
         });
 
-        $('#btn_right').click(function () {
+        $('.btn_center').click(function () {
+            if (rocket_col == 1) {
+                moveRight();
+            }else if (rocket_col == 3) {
+                moveLeft();
+            }
+        });
+
+
+        $('.btn_right').click(function () {
             moveRight();
         });
 
