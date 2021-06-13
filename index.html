@@ -372,7 +372,7 @@
 
 
         $('#btn_start').click(function () {
-
+            playMusic1();
 
             $('#intro').hide();
             $('#game').show();
@@ -563,9 +563,7 @@
 
         $(function () {
 
-            $("body").click(function () {
-                playMusic1();
-            });
+
 
             $("body").keydown(function (e) {
                 if (e.keyCode == 37) {
